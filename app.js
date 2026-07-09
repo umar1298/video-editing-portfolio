@@ -39,8 +39,17 @@ function fillProfile(){
   set("aboutText", PROFILE.intro);
   document.title = `${PROFILE.name} — ${PROFILE.tagline}`;
 
-  const email = document.getElementById("emailLink");
-  if (email){ email.textContent = PROFILE.email; email.href = `mailto:${PROFILE.email}`; }
+  // Primary contact link — prefer phone (click-to-call), else email.
+  const contact = document.getElementById("emailLink");
+  if (contact){
+    if (PROFILE.phone){
+      contact.textContent = PROFILE.phone;
+      contact.href = `tel:${PROFILE.phone.replace(/\s+/g, "")}`;
+    } else if (PROFILE.email){
+      contact.textContent = PROFILE.email;
+      contact.href = `mailto:${PROFILE.email}`;
+    }
+  }
 
   const socials = document.getElementById("socials");
   if (socials) socials.innerHTML = PROFILE.socials

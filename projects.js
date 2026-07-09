@@ -89,13 +89,15 @@ const PROJECTS = [
 
 /* ---- Your name & contact (edit these) ---- */
 const PROFILE = {
-  name: "Your Name",
+  name: "Huzaifa Anwar",
   tagline: "Video Editor & Motion Designer",
   intro: "I craft cinematic edits, punchy social reels, and motion graphics that hold attention.",
-  email: "you@example.com",
+  phone: "+92 340 8789785",      // shown as a click-to-call link
+  email: "",                     // add an email here later if you want one shown too
   socials: [
+    { label: "WhatsApp",  url: "https://wa.me/923408789785" },
+    // Add your real profiles below (or delete the placeholders):
     { label: "YouTube",   url: "https://youtube.com/@yourhandle" },
     { label: "Instagram", url: "https://instagram.com/yourhandle" },
-    { label: "LinkedIn",  url: "https://linkedin.com/in/yourhandle" },
   ],
 };
