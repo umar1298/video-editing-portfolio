@@ -4,6 +4,7 @@
 function thumbFor(p){
   if (p.thumb) return p.thumb;
   if (p.host === "youtube") return `https://img.youtube.com/vi/${p.id}/hqdefault.jpg`;
+  if (p.host === "gdrive")  return `https://drive.google.com/thumbnail?id=${p.id}&sz=w640`;
   // Vimeo & local files have no auto-thumbnail, so fall back to a placeholder
   // unless you provide `thumb:` (recommended — a poster frame from the edit).
   return "assets/placeholder.svg";
@@ -18,6 +19,9 @@ function playerHTML(p){
   if (p.host === "vimeo")
     return `<iframe src="https://player.vimeo.com/video/${p.id}?autoplay=1"
               allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
+  if (p.host === "gdrive")
+    return `<iframe src="https://drive.google.com/file/d/${p.id}/preview"
+              allow="autoplay; fullscreen" allowfullscreen></iframe>`;
   if (p.host === "local")
     return `<video src="${p.src}" ${p.thumb ? `poster="${p.thumb}"` : ""}
               controls autoplay playsinline></video>`;

@@ -7,8 +7,8 @@
      role     : what you did (e.g. "Editor · Colorist")
      tools    : software used (e.g. "Premiere Pro, After Effects")
      category : used by the filter buttons (e.g. "Reels", "Long-form")
-     host     : "youtube", "vimeo", or "local"
-     id       : (youtube/vimeo) the video ID only, NOT the whole URL — see below
+     host     : "youtube", "vimeo", "gdrive", or "local"
+     id       : (youtube/vimeo/gdrive) the video/file ID only, NOT the full URL
      src      : (local only) path to the file, e.g. "videos/my-reel.mp4"
      thumb    : thumbnail image URL. Auto-fetched for YouTube; STRONGLY
                 recommended for vimeo/local (export a poster frame to assets/).
@@ -17,6 +17,15 @@
      YouTube  https://www.youtube.com/watch?v=dQw4w9WgXcQ   ->  id: "dQw4w9WgXcQ"
      YouTube  https://youtu.be/dQw4w9WgXcQ                  ->  id: "dQw4w9WgXcQ"
      Vimeo    https://vimeo.com/123456789                   ->  id: "123456789"
+
+   GOOGLE DRIVE (quick start — plays your existing Drive files):
+     1. In Drive, right-click the video -> Share -> General access ->
+        "Anyone with the link" = Viewer.  (Required, or it won't play.)
+     2. Copy the link: https://drive.google.com/file/d/1AbC...XyZ/view
+                                                      ^^^^^^^^^^^  this is the id
+     3. Use host:"gdrive", id:"1AbC...XyZ".
+     Note: Drive caps quality (~720p) and can hit a "quota exceeded" wall on
+     popular files — fine to start, but YouTube/Vimeo/local are more reliable.
 
    SELF-HOSTED (no YouTube):
      1. Drop the file in the videos/ folder  ->  videos/brand-film.mp4
