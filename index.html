@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Video Editing Portfolio</title>
+  <meta name="description" content="Video editing & motion design portfolio." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- animated backdrop -->
+  <div class="bg-gradient" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <header class="nav">
+    <a class="brand" href="#top" id="brandName">Portfolio</a>
+    <nav class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <p class="eyebrow" id="heroTagline">Video Editor</p>
+    <h1 class="hero-title" id="heroName">Your Name</h1>
+    <p class="hero-intro" id="heroIntro"></p>
+    <div class="hero-actions">
+      <a href="#work" class="btn btn-primary">View Work</a>
+      <a href="#contact" class="btn btn-ghost">Get in touch</a>
+    </div>
+    <div class="scroll-hint" aria-hidden="true"><span></span></div>
+  </section>
+
+  <!-- WORK -->
+  <section class="work" id="work">
+    <div class="section-head">
+      <h2>Selected Work</h2>
+      <p>Click any piece to play.</p>
+    </div>
+
+    <div class="filters" id="filters"><!-- filter buttons injected --></div>
+
+    <div class="grid" id="grid"><!-- cards injected by app.js --></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-inner">
+      <h2>About</h2>
+      <p id="aboutText"></p>
+      <div class="skills" id="skills"></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <h2>Let's make something.</h2>
+    <a class="email-link" id="emailLink" href="#">you@example.com</a>
+    <div class="socials" id="socials"></div>
+  </section>
+
+  <footer class="foot">
+    <span id="footName">Portfolio</span> · Built with an open-source template
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+    <div class="lb-stage">
+      <div class="lb-frame" id="lbFrame"><!-- iframe injected --></div>
+      <div class="lb-meta">
+        <h3 id="lbTitle"></h3>
+        <p id="lbSub"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="projects.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
