@@ -37,12 +37,136 @@
    ===================================================================== */
 
 const PROJECTS = [
+  /* ============ YouTube Shorts Automation (faceless short-form) ============ */
+  {
+    title: "Faceless Short — Oct 14",
+    role: "Editor",
+    tools: "CapCut, Premiere Pro",
+    category: "Short-form",
+    client: "YouTube Shorts Automation",
+    host: "gdrive",
+    id: "1rNhg2o-a0ugCcR_STpOp3cL3-jITzwo9",
+  },
+  {
+    title: "Faceless Short — Oct 15",
+    role: "Editor",
+    tools: "CapCut, Premiere Pro",
+    category: "Short-form",
+    client: "YouTube Shorts Automation",
+    host: "gdrive",
+    id: "1mzsBzNdzUEjzbQODF4AvrAa8eFL2DKqQ",
+  },
+  {
+    title: "Faceless Short — Oct 16",
+    role: "Editor",
+    tools: "CapCut, Premiere Pro",
+    category: "Short-form",
+    client: "YouTube Shorts Automation",
+    host: "gdrive",
+    id: "1_Hn2LrEPRFKWiHfl-VMjUuLt38eQ1PjK",
+  },
+  {
+    title: "Faceless Short — Oct 17",
+    role: "Editor",
+    tools: "CapCut, Premiere Pro",
+    category: "Short-form",
+    client: "YouTube Shorts Automation",
+    host: "gdrive",
+    id: "1tBBZfgvObMIes0pyMu7JQvLzpxTCkuT7",
+  },
+  {
+    title: "Faceless Short — Oct 17 (v2)",
+    role: "Editor",
+    tools: "CapCut, Premiere Pro",
+    category: "Short-form",
+    client: "YouTube Shorts Automation",
+    host: "gdrive",
+    id: "1QMycFQ_hl8eNy0Prr9NKJjmEOeMR3hRr",
+  },
+  {
+    title: "Faceless Short — Oct 18",
+    role: "Editor",
+    tools: "CapCut, Premiere Pro",
+    category: "Short-form",
+    client: "YouTube Shorts Automation",
+    host: "gdrive",
+    id: "1dIJjFna9pYIClh5VtRBe_qlvvwJUMiUS",
+  },
+  {
+    title: "Faceless Short — Oct 21",
+    role: "Editor",
+    tools: "CapCut, Premiere Pro",
+    category: "Short-form",
+    client: "YouTube Shorts Automation",
+    host: "gdrive",
+    id: "19RaFM2PnSJ3OMDKYWw-gsO9Qjelfsg12",
+  },
+
+  /* ============ Roblox Gaming Channel ============ */
+  {
+    title: "Best Revenge Against a Troller",
+    role: "Editor",
+    tools: "Premiere Pro",
+    category: "Gaming",
+    client: "Roblox Gaming Channel",
+    host: "gdrive",
+    id: "1jeOgGYdP20FuLmplekJZZr0EJOLCfnYl",
+  },
+  {
+    title: "Revenge Moment Against a Troller",
+    role: "Editor",
+    tools: "Premiere Pro",
+    category: "Gaming",
+    client: "Roblox Gaming Channel",
+    host: "gdrive",
+    id: "1nVA6bBGu5-aiUxk0-bS4FPsra04du0OJ",
+  },
+  {
+    title: "Little Girl Trolling Me",
+    role: "Editor",
+    tools: "Premiere Pro",
+    category: "Gaming",
+    client: "Roblox Gaming Channel",
+    host: "gdrive",
+    id: "1Kb3ktxRxOf28_OOSQhJ5cf8iDOQzAMPn",
+  },
+
+  /* ============ Software & SaaS Demos ============ */
+  {
+    title: "How to Use Yodeck",
+    role: "Editor",
+    tools: "Premiere Pro",
+    category: "Tutorial",
+    client: "Software & SaaS Demos",
+    host: "gdrive",
+    id: "1pbBni1tj0qhfhqOrmLNygyFF7x9Wc705",
+  },
+  {
+    title: "MailerLite Walkthrough",
+    role: "Editor",
+    tools: "Premiere Pro",
+    category: "Product Demo",
+    client: "Software & SaaS Demos",
+    host: "gdrive",
+    id: "16xuvumqzlGBOhzjeZkH1nb9_OuZx3igy",
+  },
+  {
+    title: "Systeme.io Walkthrough",
+    role: "Editor",
+    tools: "Premiere Pro",
+    category: "Product Demo",
+    client: "Software & SaaS Demos",
+    host: "gdrive",
+    id: "194yvIvg5aSbC3x4dffjWrxarjOu1lSxA",
+  },
+
+  /* ============ Documentary & Educational ============ */
   {
     title: "From Ancient Kingdoms to Kim Jong-un",
     role: "Editor · Sound Design",
     tools: "Premiere Pro, After Effects",
     category: "Documentary",
-    client: "Documentary & Educational",   // <-- groups videos into a section
+    client: "Documentary & Educational",
     host: "gdrive",
     id: "17dF2DXCDTdd8Zsb7UhQNq-JDU-i716N_",
   },
@@ -55,15 +179,8 @@ const PROJECTS = [
     host: "gdrive",
     id: "1mJzro6BjsJIo4Ei_qCi37k8mJjclJ_Vc",
   },
-  {
-    title: "Best Revenge Against a Troller",
-    role: "Editor",
-    tools: "Premiere Pro",
-    category: "Gaming",
-    client: "Roblox Gaming Channel",
-    host: "gdrive",
-    id: "1jeOgGYdP20FuLmplekJZZr0EJOLCfnYl",
-  },
+
+  /* ============ Kids & Animation ============ */
   {
     title: "Twinkle Twinkle — Nursery Rhyme (4K)",
     role: "Editor · Animation",
@@ -73,14 +190,25 @@ const PROJECTS = [
     host: "gdrive",
     id: "1txnv64pLF1L31iiQY6yLC82Z3uUK_MnX",
   },
+
+  /* ============ Viral & Long-form ============ */
   {
-    title: "How to Use Yodeck",
+    title: "When Dumb Karens Try to Attack Cops",
     role: "Editor",
     tools: "Premiere Pro",
-    category: "Tutorial",
-    client: "Yodeck — Product Tutorials",
+    category: "Reaction / Viral",
+    client: "Viral & Long-form",
     host: "gdrive",
-    id: "1pbBni1tj0qhfhqOrmLNygyFF7x9Wc705",
+    id: "1yrQuus29SeSv9a_Cet2S0VH5TrNqFLOo",
+  },
+  {
+    title: "Vid 2",
+    role: "Editor",
+    tools: "Premiere Pro",
+    category: "Long-form",
+    client: "Viral & Long-form",
+    host: "gdrive",
+    id: "1birMFJz13QJYQ7sf7CHEo8Wvy6dXtgyM",
   },
 ];
 
