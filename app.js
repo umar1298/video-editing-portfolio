@@ -4,15 +4,23 @@
 function thumbFor(p){
   if (p.thumb) return p.thumb;
   if (p.host === "youtube") return `https://img.youtube.com/vi/${p.id}/hqdefault.jpg`;
-  // Vimeo has no predictable public thumb URL without an API call,
-  // so fall back to a dark placeholder if none supplied.
+  // Vimeo & local files have no auto-thumbnail, so fall back to a placeholder
+  // unless you provide `thumb:` (recommended — a poster frame from the edit).
   return "assets/placeholder.svg";
 }
-function embedFor(p){
+
+/* Returns the HTML that goes inside the lightbox for a given project.
+   YouTube/Vimeo -> an <iframe> embed.  Local file -> a native <video> player. */
+function playerHTML(p){
   if (p.host === "youtube")
-    return `https://www.youtube.com/embed/${p.id}?autoplay=1&rel=0`;
+    return `<iframe src="https://www.youtube.com/embed/${p.id}?autoplay=1&rel=0"
+              allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
   if (p.host === "vimeo")
-    return `https://player.vimeo.com/video/${p.id}?autoplay=1`;
+    return `<iframe src="https://player.vimeo.com/video/${p.id}?autoplay=1"
+              allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
+  if (p.host === "local")
+    return `<video src="${p.src}" ${p.thumb ? `poster="${p.thumb}"` : ""}
+              controls autoplay playsinline></video>`;
   return "";
 }
 
@@ -86,8 +94,7 @@ function renderFilters(){
 /* ---------- lightbox ---------- */
 const lb = document.getElementById("lightbox");
 function openLightbox(p){
-  document.getElementById("lbFrame").innerHTML =
-    `<iframe src="${embedFor(p)}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
+  document.getElementById("lbFrame").innerHTML = playerHTML(p);
   document.getElementById("lbTitle").textContent = p.title;
   document.getElementById("lbSub").textContent = `${p.role} — ${p.tools}`;
   lb.classList.add("open"); lb.setAttribute("aria-hidden","false");

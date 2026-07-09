@@ -5,9 +5,15 @@ desktop.ini
 .vscode/
 .idea/
 
-# Don't commit raw video files — host them on YouTube/Vimeo instead
+# By default, keep heavy raw video files out of Git...
 *.mp4
 *.mov
 *.avi
 *.mkv
 *.webm
+
+# ...but ALLOW self-hosted clips placed in the videos/ folder.
+# (Keep these compressed & under ~50 MB each — GitHub rejects files >100 MB.)
+!videos/*.mp4
+!videos/*.webm
+!videos/*.mov
