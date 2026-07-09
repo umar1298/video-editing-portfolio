@@ -6,7 +6,10 @@
      title    : shown under the thumbnail
      role     : what you did (e.g. "Editor · Colorist")
      tools    : software used (e.g. "Premiere Pro, After Effects")
-     category : used by the filter buttons (e.g. "Reels", "Long-form")
+     category : the type of edit, shown as a small tag on each card
+     client   : the channel / project / folder this video belongs to.
+                Videos with the same `client` are grouped into one section,
+                and the filter buttons let you jump between clients.
      host     : "youtube", "vimeo", "gdrive", or "local"
      id       : (youtube/vimeo/gdrive) the video/file ID only, NOT the full URL
      src      : (local only) path to the file, e.g. "videos/my-reel.mp4"
@@ -39,14 +42,34 @@ const PROJECTS = [
     role: "Editor · Sound Design",
     tools: "Premiere Pro, After Effects",
     category: "Documentary",
+    client: "Documentary & Educational",   // <-- groups videos into a section
     host: "gdrive",
     id: "17dF2DXCDTdd8Zsb7UhQNq-JDU-i716N_",
+  },
+  {
+    title: "Facts About Space",
+    role: "Editor",
+    tools: "After Effects, Premiere Pro",
+    category: "Educational",
+    client: "Documentary & Educational",
+    host: "gdrive",
+    id: "1mJzro6BjsJIo4Ei_qCi37k8mJjclJ_Vc",
+  },
+  {
+    title: "Best Revenge Against a Troller",
+    role: "Editor",
+    tools: "Premiere Pro",
+    category: "Gaming",
+    client: "Roblox Gaming Channel",
+    host: "gdrive",
+    id: "1jeOgGYdP20FuLmplekJZZr0EJOLCfnYl",
   },
   {
     title: "Twinkle Twinkle — Nursery Rhyme (4K)",
     role: "Editor · Animation",
     tools: "After Effects",
     category: "Kids & Animation",
+    client: "Twinkle Twinkle Star — Kids Channel",
     host: "gdrive",
     id: "1txnv64pLF1L31iiQY6yLC82Z3uUK_MnX",
   },
@@ -55,24 +78,9 @@ const PROJECTS = [
     role: "Editor",
     tools: "Premiere Pro",
     category: "Tutorial",
+    client: "Yodeck — Product Tutorials",
     host: "gdrive",
     id: "1pbBni1tj0qhfhqOrmLNygyFF7x9Wc705",
-  },
-  {
-    title: "Best Revenge Against a Troller",
-    role: "Editor",
-    tools: "Premiere Pro",
-    category: "Gaming",
-    host: "gdrive",
-    id: "1jeOgGYdP20FuLmplekJZZr0EJOLCfnYl",
-  },
-  {
-    title: "Facts About Space",
-    role: "Editor",
-    tools: "After Effects, Premiere Pro",
-    category: "Educational",
-    host: "gdrive",
-    id: "1mJzro6BjsJIo4Ei_qCi37k8mJjclJ_Vc",
   },
 ];
 

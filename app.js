@@ -67,10 +67,12 @@ function fillProfile(){
 
 /* ---------- cards ---------- */
 function cardHTML(p, i){
-  return `<article class="card reveal" data-cat="${p.category}" data-index="${i}" style="transition-delay:${(i%3)*60}ms">
+  const cat = p.category ? `<span class="card-cat">${p.category}</span>` : "";
+  return `<article class="card reveal" data-index="${i}" style="transition-delay:${(i%3)*60}ms">
     <div class="thumb">
       <img loading="lazy" src="${thumbFor(p)}" alt="${p.title}" onerror="this.src='assets/placeholder.svg'"/>
       <div class="play-badge">${PLAY_ICON}</div>
+      ${cat}
     </div>
     <div class="card-body">
       <h3>${p.title}</h3>
@@ -80,19 +82,39 @@ function cardHTML(p, i){
   </article>`;
 }
 
+/* Ordered list of unique client/folder names (first-appearance order). */
+function clientList(){
+  return [...new Set(PROJECTS.map(p => p.client || "Other Work"))];
+}
+
+/* Render the Work area as one section per client/folder.
+   `filter` = "All" shows every section; otherwise just that client's. */
 function renderGrid(filter="All"){
   const grid = document.getElementById("grid");
-  grid.innerHTML = PROJECTS
-    .map((p,i)=>({p,i}))
-    .filter(({p}) => filter === "All" || p.category === filter)
-    .map(({p,i}) => cardHTML(p,i))
-    .join("");
+  const clients = clientList().filter(c => filter === "All" || c === filter);
+
+  grid.innerHTML = clients.map(client => {
+    const cards = PROJECTS
+      .map((p,i) => ({p,i}))
+      .filter(({p}) => (p.client || "Other Work") === client)
+      .map(({p,i}) => cardHTML(p,i))
+      .join("");
+    const count = PROJECTS.filter(p => (p.client || "Other Work") === client).length;
+    return `<div class="group reveal">
+      <div class="group-head">
+        <h3 class="group-title">${client}</h3>
+        <span class="group-count">${count} ${count === 1 ? "video" : "videos"}</span>
+      </div>
+      <div class="grid-inner">${cards}</div>
+    </div>`;
+  }).join("");
+
   observeReveals();
 }
 
-/* ---------- filters ---------- */
+/* ---------- filters (by client / folder) ---------- */
 function renderFilters(){
-  const cats = ["All", ...new Set(PROJECTS.map(p => p.category))];
+  const cats = ["All", ...clientList()];
   const wrap = document.getElementById("filters");
   wrap.innerHTML = cats.map((c,i) =>
     `<button class="filter-btn ${i===0?'active':''}" data-cat="${c}">${c}</button>`).join("");

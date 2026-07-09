@@ -118,11 +118,29 @@ section{padding:clamp(64px,10vw,140px) clamp(20px,6vw,80px)}
   background:linear-gradient(120deg,var(--accent),var(--accent-2));
 }
 
-/* ============ GRID ============ */
-.grid{
+/* ============ GRID / GROUPS ============ */
+.grid{                       /* now a vertical stack of client sections */
   max-width:var(--maxw);margin:0 auto;
+  display:flex;flex-direction:column;gap:56px;
+}
+.group-head{
+  display:flex;align-items:baseline;gap:14px;
+  margin-bottom:22px;padding-bottom:14px;border-bottom:1px solid var(--line);
+}
+.group-title{
+  font-size:clamp(1.3rem,2.6vw,1.7rem);font-weight:700;
+}
+.group-count{color:var(--muted);font-size:.85rem;font-weight:500}
+.grid-inner{                 /* the actual card grid inside each section */
   display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
   gap:22px;
+}
+.card-cat{
+  position:absolute;top:12px;left:12px;z-index:2;
+  padding:5px 12px;border-radius:999px;
+  background:rgba(10,10,15,.7);backdrop-filter:blur(6px);
+  border:1px solid var(--line);
+  font-size:.72rem;font-weight:600;letter-spacing:.02em;color:var(--text);
 }
 .card{
   background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
@@ -207,5 +225,6 @@ section{padding:clamp(64px,10vw,140px) clamp(20px,6vw,80px)}
 
 @media (max-width:600px){
   .nav-links a:not(.nav-cta){display:none}
-  .grid{grid-template-columns:1fr}
+  .grid{gap:44px}
+  .grid-inner{grid-template-columns:1fr}
 }
